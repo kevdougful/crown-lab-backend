@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "build": "webpack --config webpack.config.ts",
+    "start": "npm run build && node ./dist/server.js"
+  },
+  "devDependencies": {
+    "@types/node": "^10.3.5",
+    "awesome-typescript-loader": "^5.2.0",
+    "ts-lint": "^4.5.1",
+    "ts-node": "^7.0.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3"
+  }
+}
