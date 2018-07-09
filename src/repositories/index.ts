@@ -1,1 +1,1 @@
-export * from './post.repository'
+export * from './publication.repository'

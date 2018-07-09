@@ -1,7 +1,7 @@
 import { ApplicationConfig } from '@loopback/core'
 import { RestApplication, RestServer, RestBindings } from '@loopback/rest'
 import { MySequence } from './sequence'
-import { DbDataSource } from './datasources/db.datasource'
+import { MongoDataSource } from './datasources/mongo.datasource'
 
 /* tslint:disable:no-unused-variable */
 // Binding and Booter imports are required to infer types for BootMixin!
@@ -36,7 +36,9 @@ export class CrownLabApplication extends BootMixin(RepositoryMixin(RestApplicati
     // This will allow you to test your application without needing to
     // use a "real" datasource!
     const datasource =
-      this.options && this.options.datasource ? new juggler.DataSource(this.options.datasource) : DbDataSource
+      this.options && this.options.datasource
+        ? new juggler.DataSource(this.options.datasource)
+        : MongoDataSource
     this.dataSource(datasource)
   }
 
