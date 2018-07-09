@@ -8,10 +8,17 @@ import { MongoDataSource } from './datasources/mongo.datasource'
 import { BootMixin, Booter, Binding } from '@loopback/boot'
 
 // juggler imports are required to infer types for RepositoryMixin!
-import { Class, Repository, RepositoryMixin, juggler } from '@loopback/repository'
+import {
+  Class,
+  Repository,
+  RepositoryMixin,
+  juggler
+} from '@loopback/repository'
 /* tslint:enable:no-unused-variable */
 
-export class CrownLabApplication extends BootMixin(RepositoryMixin(RestApplication)) {
+export class CrownLabApiApplication extends BootMixin(
+  RepositoryMixin(RestApplication)
+) {
   constructor(options?: ApplicationConfig) {
     super(options)
 
