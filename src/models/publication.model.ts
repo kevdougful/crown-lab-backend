@@ -3,22 +3,17 @@ import { Entity, property, model } from '@loopback/repository'
 @model()
 export class Publication extends Entity {
   @property({
-    type: 'string',
-    id: true
+    type: 'number',
+    id: true,
+    description: 'PubMed ID'
   })
-  id?: string
-
+  pmid: number
+  
   @property({
     type: 'string',
     description: 'digital object identifier (doi.org)'
   })
   doi: string
-
-  @property({
-    type: 'number',
-    description: 'PubMed ID'
-  })
-  pmid: number
 
   @property({
     type: 'string',
