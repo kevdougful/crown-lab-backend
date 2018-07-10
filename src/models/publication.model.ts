@@ -1,5 +1,4 @@
 import { Entity, property, model } from '@loopback/repository'
-import { getDiffieHellman } from 'crypto'
 
 @model()
 export class Publication extends Entity {
@@ -18,8 +17,9 @@ export class Publication extends Entity {
   @property({ type: 'string' })
   title: string
 
-  @property({ type: 'string' })
-  authors: string
+  @property.array(String) authors: string[]
+
+  @property.array(String) keywords: string[]
 
   getId() {
     return this.id
