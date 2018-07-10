@@ -9,9 +9,12 @@ import {
   get,
   put,
   patch,
-  del
+  del,
+  api
 } from '@loopback/rest'
+import { def } from './publication.controller.api'
 
+@api(def)
 export class PublicationController {
   constructor(
     @repository(PublicationRepository) protected repo: PublicationRepository
