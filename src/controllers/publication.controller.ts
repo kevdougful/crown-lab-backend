@@ -1,3 +1,4 @@
+import { inject } from '@loopback/core'
 import { repository } from '@loopback/repository'
 import { PublicationRepository } from '../repositories'
 import { Publication } from '../models'
@@ -11,11 +12,23 @@ import {
   patch,
   del
 } from '@loopback/rest'
+import {
+  AuthenticationBindings,
+  UserProfile,
+  authenticate
+} from '@loopback/authentication'
 
 export class PublicationController {
   constructor(
+    @inject(AuthenticationBindings.CURRENT_USER) private user: UserProfile,
     @repository(PublicationRepository) protected repo: PublicationRepository
   ) {}
+
+  @authenticate('BasicStrategy')
+  @get('/whoami')
+  whoAmI(): string {
+    return this.user.id
+  }
 
   @get('/publications')
   async findPublications(): Promise<Publication[]> {

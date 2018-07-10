@@ -1,5 +1,10 @@
 import { ApplicationConfig } from '@loopback/core'
 import { RestApplication, RestServer, RestBindings } from '@loopback/rest'
+import {
+  AuthenticationComponent,
+  AuthenticationBindings
+} from '@loopback/authentication'
+import { AuthStrategyProvider } from './providers/auth-strategy.provider'
 import { MySequence } from './sequence'
 import { MongoDataSource } from './datasources/mongo.datasource'
 
@@ -26,6 +31,9 @@ export class CrownLabApiApplication extends BootMixin(
     this.sequence(MySequence)
 
     this.projectRoot = __dirname
+
+    this.component(AuthenticationComponent)
+    this.bind(AuthenticationBindings.STRATEGY).toProvider(AuthStrategyProvider)
     // Customize @loopback/boot Booter Conventions here
     this.bootOptions = {
       controllers: {
