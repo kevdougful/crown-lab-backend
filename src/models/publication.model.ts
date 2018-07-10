@@ -2,24 +2,45 @@ import { Entity, property, model } from '@loopback/repository'
 
 @model()
 export class Publication extends Entity {
-  @property({ type: 'string', id: true })
+  @property({
+    type: 'string',
+    id: true
+  })
   id?: string
 
-  @property({ type: 'string' })
+  @property({
+    type: 'string',
+    description: 'digital object identifier (doi.org)'
+  })
   doi: string
 
-  @property({ type: 'number' })
+  @property({
+    type: 'number',
+    description: 'PubMed ID'
+  })
   pmid: number
 
-  @property({ type: 'string' })
+  @property({
+    type: 'string',
+    description: 'PubMed Central ID'
+  })
   pmcid: string
 
-  @property({ type: 'string' })
+  @property({
+    type: 'string',
+    description: 'Title of the publication'
+  })
   title: string
 
-  @property.array(String) authors: string[]
+  @property.array(String, {
+    description: 'Authors appearing on the publication'
+  })
+  authors: string[]
 
-  @property.array(String) keywords: string[]
+  @property.array(String, {
+    description: 'Essential terms related to the publication'
+  })
+  keywords: string[]
 
   getId() {
     return this.id
