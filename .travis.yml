@@ -1,0 +1,26 @@
+language: nodejs
+
+before_script:
+  - npm install
+  - npm run build:current
+
+script:
+  - npm test
+
+after_success:
+  - npm run typedoc
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    local_dir: docs/
+    github_token: $GITHUB_TOKEN
+    on:
+      tags: true
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    file_glob: true
+    file: "crown-lab-backend-*.tgz"
+    skip_cleanup: true
+    on:
+      tags: true

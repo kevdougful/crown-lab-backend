@@ -65,3 +65,5 @@ dist8
 *.datasource.json
 
 data/
+
+docs/
