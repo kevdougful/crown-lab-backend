@@ -25,7 +25,5 @@ env:
     secure: g5jGrabrnw5ueqHaxLcvtaGWX4nq6MHesGv+oCPU0JFrmWGimMrPJ5CJXP5kUg+YTPOnZV2DcSpG3Thbbq0wroZTjs40QN08nOP0Uc2HkeHEZc0hSaNnpoK6/M/o3AndyokQtB31tQRXNL0GLY54JbmjuvygwkBxw9zPkRcZGrkG4izDrtdH1J597jO4bh6c7l8bwW9kK7iZfECM+tHLI6V7B+rhsCSL7nkxLRT60S5mHQP4e3RUpjU8UdSrphWPFZ98xvfbqWiLFwM6VHYOzBdHBK52SpakTwAyFmSBeSByQfAuVXRrtgw62uyy4Andlw4+K6fkynSoZzAWeHmWTbdKSRV/pDJ1RVSvYs3YROVj+t2POOhHCp+82peJPsln9jaWMcyRfubcKPmiuWJnl3ZFaZ5+4VNGlEbMfJk+ntU64a9ozDyCbeNB10nlxDA4RbVwYAy1+FpOI18UKiE/Z6zIzNoU2a7k9MAgzDcjOD+qopNHAPuybhYJ/Emm2257WMueDnnds0mkfAV9F3CufPLXEykHApaQgNwGukPlfG1XvB0wuxyC4BlIZA8UKX7wc8nukccDGRYc4hwM6VZ8fr/JvccHM/Dti6coq4YoriaAaI2FfcRZxSPcHFrN5GkTtfWf636AZgAE7bOpu979y8SwCOdZMvTIUoispqjc3ug=
 before_install:
 - openssl aes-256-cbc -K $encrypted_935d6f5c4880_key -iv $encrypted_935d6f5c4880_iv
-  -in datasources.tar.enc -out datasources.tar -d
-- tar xvf datasources.tar
-- mv mongo.datasources.json src/datasources
-- mv db.datasources.json src/datasources
+  -in datasources.tar.gz.enc -out datasources.tar.gz -d
+- tar zxvf datasources.tar.gz
