@@ -27,3 +27,5 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_935d6f5c4880_key -iv $encrypted_935d6f5c4880_iv
   -in datasources.tar.enc -out datasources.tar -d
 - tar xvf datasources.tar
+- mv mongo.datasources.json src/datasources
+- mv db.datasources.json src/datasources
