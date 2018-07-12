@@ -24,12 +24,15 @@
     "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
     "prettier:check": "npm run prettier:cli -- -l",
     "prettier:fix": "npm run prettier:cli -- --write",
+    "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./src",
+    "posttypedoc": "shx cp .nojekyll docs/.nojekyll",
     "tslint": "lb-tslint",
     "tslint:fix": "npm run tslint -- --fix",
     "pretest": "npm run clean && npm run build:current",
     "test": "lb-mocha --allow-console-logs \"DIST/test\"",
     "posttest": "npm run lint",
     "test:dev": "lb-mocha --allow-console-logs DIST/test/**/*.js && npm run posttest",
+    "test:build": "lb-mocha --allow-console-logs DIST/test/**/*.js",
     "prestart": "npm run build:current",
     "start": "node .",
     "prepublishOnly": "npm run test"
@@ -68,6 +71,9 @@
     "@types/passport": "^0.4.5",
     "@types/passport-http": "^0.3.6",
     "mocha": "^5.1.1",
-    "source-map-support": "^0.5.5"
+    "npm-run-all": "^4.1.3",
+    "shx": "^0.3.2",
+    "source-map-support": "^0.5.5",
+    "typedoc": "^0.11.1"
   }
 }
