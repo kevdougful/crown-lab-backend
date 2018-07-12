@@ -10,11 +10,19 @@ deploy:
 - provider: pages
   skip_cleanup: true
   local_dir: docs/
-  github_token: "$GITHUB_TOKEN"
+  github_token: $GITHUB_TOKEN
   on:
-    tags: true
+    branch: master
 - provider: releases
-  api_key: "$GITHUB_TOKEN"
+  prerelease: true
+  api_key: $GITHUB_TOKEN
+  file_glob: true
+  file: crown-lab-backend-*.tgz
+  skip_cleanup: true
+  on:
+    branch: develop
+- provider: releases
+  api_key: $GITHUB_TOKEN
   file_glob: true
   file: crown-lab-backend-*.tgz
   skip_cleanup: true
