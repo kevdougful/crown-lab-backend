@@ -65,3 +65,9 @@ dist8
 *.datasource.json
 
 data/
+
+docs/
+
+datasources\.tar
+
+datasources\.tar\.gz
