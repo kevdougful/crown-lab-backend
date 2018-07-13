@@ -6,6 +6,7 @@ import {
   UserProfile
 } from '@loopback/authentication'
 import { BasicStrategy } from 'passport-http'
+import { User } from '../models'
 
 export class AuthStrategyProvider implements Provider<Strategy | undefined> {
   constructor(
@@ -32,5 +33,6 @@ export class AuthStrategyProvider implements Provider<Strategy | undefined> {
     // Find user by name and password
     // call cb(null, false) when user not found
     // call cb(null, user) when user is authenticated
+    cb(null, new User({ name: 'kevin' }))
   }
 }

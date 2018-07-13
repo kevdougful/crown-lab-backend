@@ -23,15 +23,10 @@ import {
  */
 export class PublicationController {
   constructor(
-    @inject(AuthenticationBindings.CURRENT_USER) private user: UserProfile,
+    @inject(AuthenticationBindings.CURRENT_USER, { optional: true })
+    private user: UserProfile,
     @repository(PublicationRepository) protected repo: PublicationRepository
   ) {}
-
-  @authenticate('BasicStrategy')
-  @get('/whoami')
-  whoAmI(): string {
-    return this.user.id
-  }
 
   @get('/publications')
   async findPublications(): Promise<Publication[]> {
