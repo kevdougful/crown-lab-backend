@@ -26,14 +26,6 @@ deploy:
   on:
     branch: master
 - provider: releases
-  prerelease: true
-  api_key: "$GITHUB_TOKEN"
-  file_glob: true
-  file: crown-lab-backend-*.tgz
-  skip_cleanup: true
-  on:
-    branch: develop
-- provider: releases
   api_key: "$GITHUB_TOKEN"
   file_glob: true
   file: crown-lab-backend-*.tgz
