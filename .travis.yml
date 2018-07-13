@@ -18,7 +18,7 @@ deploy:
   app: crown-lab-backend
   on:
     repo: kevdougful/crown-lab-backend
-    branch: feature/heroku
+    branch: develop
 - provider: pages
   skip_cleanup: true
   local_dir: docs/
