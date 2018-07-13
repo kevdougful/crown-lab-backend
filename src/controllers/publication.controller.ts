@@ -18,6 +18,9 @@ import {
   authenticate
 } from '@loopback/authentication'
 
+/**
+ * Provides routes for Publication CRUD operations
+ */
 export class PublicationController {
   constructor(
     @inject(AuthenticationBindings.CURRENT_USER) private user: UserProfile,

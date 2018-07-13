@@ -18,21 +18,13 @@ deploy:
   app: crown-lab-backend
   on:
     repo: kevdougful/crown-lab-backend
-    branch: feature/heroku
+    branch: develop
 - provider: pages
   skip_cleanup: true
   local_dir: docs/
   github_token: "$GITHUB_TOKEN"
   on:
     branch: master
-- provider: releases
-  prerelease: true
-  api_key: "$GITHUB_TOKEN"
-  file_glob: true
-  file: crown-lab-backend-*.tgz
-  skip_cleanup: true
-  on:
-    branch: develop
 - provider: releases
   api_key: "$GITHUB_TOKEN"
   file_glob: true

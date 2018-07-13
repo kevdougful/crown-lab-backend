@@ -21,9 +21,16 @@ import {
 } from '@loopback/repository'
 /* tslint:enable:no-unused-variable */
 
+/**
+ * Main type for Application
+ */
 export class CrownLabApiApplication extends BootMixin(
   RepositoryMixin(RestApplication)
 ) {
+  /**
+   *
+   * @param options optional global config object for application
+   */
   constructor(options?: ApplicationConfig) {
     super(options)
 
@@ -47,9 +54,12 @@ export class CrownLabApiApplication extends BootMixin(
     this.setupDatasources()
   }
 
+  /**
+   * This will allow you to test your application without needing to
+   * use a "real" datasource! This turd will need to be cleaned up at some
+   * point.
+   */
   setupDatasources() {
-    // This will allow you to test your application without needing to
-    // use a "real" datasource!
     const datasource =
       this.options && this.options.datasource
         ? new juggler.DataSource(this.options.datasource)
@@ -57,6 +67,9 @@ export class CrownLabApiApplication extends BootMixin(
     this.dataSource(datasource)
   }
 
+  /**
+   * Starts up the application and binds servers to ports
+   */
   async start() {
     const server = await this.getServer(RestServer)
     server.bind('rest.port').to(process.env.PORT || 3000)

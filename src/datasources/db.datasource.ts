@@ -7,9 +7,16 @@ const config = {
   file: './data/db.json'
 }
 
+/**
+ * Provides datasource configuration details
+ */
 export class DbDataSource extends juggler.DataSource {
   static dataSourceName = 'db'
 
+  /**
+   *
+   * @param dsConfig configuration object from loopback-connector package
+   */
   constructor(
     @inject('datasources.config.db', { optional: true })
     dsConfig: AnyObject = config
