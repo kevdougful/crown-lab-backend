@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "/keybase/team/pixelmixr/crown-lab"
+		}
+	],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+
+    "typescript.tsdk": "node_modules/typescript/lib",
+
+    "search.exclude": {
+      "**/dist": true,
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/coverage": true
+    },
+
+    "files.trimTrailingWhitespace": true,
+    "files.eol": "\n"
+  }
+}

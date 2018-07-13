@@ -60,4 +60,14 @@ typings/
 # next.js build output
 .next
 
+# Loopback
 dist8
+*.datasource.json
+
+data/
+
+docs/
+
+datasources\.tar
+
+datasources\.tar\.gz
