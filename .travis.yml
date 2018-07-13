@@ -1,4 +1,10 @@
-language: nodejs
+sudo: false
+language: node_js
+node_js:
+- lts/*
+cache:
+  directories:
+  - node_modules
 before_script:
 - npm install
 - npm run build:current
@@ -7,22 +13,20 @@ script:
 after_success:
 - npm run typedoc
 deploy:
+- provider: heroku
+  api_key: "$HEROKU_TOKEN"
+  app: crown-lab-backend
+  on:
+    repo: kevdougful/crown-lab-backend
+    branch: develop
 - provider: pages
   skip_cleanup: true
   local_dir: docs/
-  github_token: $GITHUB_TOKEN
+  github_token: "$GITHUB_TOKEN"
   on:
     branch: master
 - provider: releases
-  prerelease: true
-  api_key: $GITHUB_TOKEN
-  file_glob: true
-  file: crown-lab-backend-*.tgz
-  skip_cleanup: true
-  on:
-    branch: develop
-- provider: releases
-  api_key: $GITHUB_TOKEN
+  api_key: "$GITHUB_TOKEN"
   file_glob: true
   file: crown-lab-backend-*.tgz
   skip_cleanup: true
@@ -30,8 +34,4 @@ deploy:
     tags: true
 env:
   global:
-    secure: g5jGrabrnw5ueqHaxLcvtaGWX4nq6MHesGv+oCPU0JFrmWGimMrPJ5CJXP5kUg+YTPOnZV2DcSpG3Thbbq0wroZTjs40QN08nOP0Uc2HkeHEZc0hSaNnpoK6/M/o3AndyokQtB31tQRXNL0GLY54JbmjuvygwkBxw9zPkRcZGrkG4izDrtdH1J597jO4bh6c7l8bwW9kK7iZfECM+tHLI6V7B+rhsCSL7nkxLRT60S5mHQP4e3RUpjU8UdSrphWPFZ98xvfbqWiLFwM6VHYOzBdHBK52SpakTwAyFmSBeSByQfAuVXRrtgw62uyy4Andlw4+K6fkynSoZzAWeHmWTbdKSRV/pDJ1RVSvYs3YROVj+t2POOhHCp+82peJPsln9jaWMcyRfubcKPmiuWJnl3ZFaZ5+4VNGlEbMfJk+ntU64a9ozDyCbeNB10nlxDA4RbVwYAy1+FpOI18UKiE/Z6zIzNoU2a7k9MAgzDcjOD+qopNHAPuybhYJ/Emm2257WMueDnnds0mkfAV9F3CufPLXEykHApaQgNwGukPlfG1XvB0wuxyC4BlIZA8UKX7wc8nukccDGRYc4hwM6VZ8fr/JvccHM/Dti6coq4YoriaAaI2FfcRZxSPcHFrN5GkTtfWf636AZgAE7bOpu979y8SwCOdZMvTIUoispqjc3ug=
-before_install:
-- openssl aes-256-cbc -K $encrypted_935d6f5c4880_key -iv $encrypted_935d6f5c4880_iv
-  -in datasources.tar.gz.enc -out datasources.tar.gz -d
-- tar zxvf datasources.tar.gz
+  - secure: aF26g6s+cCw42lYoe8vwE23yY2MlCd8+Mgmt0KaTC44/wJQqrX61NX/r91omZ8F7r+WYzFdFZjJUYtzlFq6Zq2gFmFMQ1hA5+UQC4hLAlNZavmEVVlrpibI1jOAxd5KGPARsknWGz74ksLWEbT01ilElYzo4ZRmTJY6GOXDP8gliuBgQr3BvUS7BckFrvcZPY6dbu4oiduzaqn1lWw+EzVOkcg1vapJA5ZfVLr+pv+oOZ7WBMtbNTYuJKFouSgjKW+Nr+J45XO9vS0VJRSVunjJtzXWPiRrnVg/9ZFS21VJ0CrM77EQVZPCBCOYEZlIc7eOcnGPurgf5LXIgFJaxpItwOBV+RECMIR5orXCUcPqfqArVfWoDcs1WQo1A7EyVnHoAI9E69yzo18OUvYZgMc74W7MMUQtoAdqaqFKH7m1vkKlI/g2xjTLfMd3Hd5Wf7TaNa/cPOTuHzKTx85Ip7WPbY84wyTY0Tdyx42wvk+74P6DYhbN+OjaH48ZM6M6jZB0OZZ0UyiJdgS95cJgO8WtJB8IFh1tjc6EuKqT1jXKzc4NkHcHAJJXXaZkZZaAF0np7rtATPNVG3c7wbYobZBObhBE8XFI80UaowNVjCekBT7wl2v3GrPfW4vG5zuh1jDI+waTRPQRw8kfgVXcSP7gN6QKloeDeZ71vXlLAGrg=

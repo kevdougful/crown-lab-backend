@@ -12,6 +12,9 @@ import {
   del
 } from '@loopback/rest'
 
+/**
+ * Provides routes for Publication CRUD operations
+ */
 export class PublicationController {
   constructor(
     @repository(PublicationRepository) protected repo: PublicationRepository

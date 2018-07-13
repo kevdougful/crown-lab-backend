@@ -1,4 +1,5 @@
 import { Entity, property, model } from '@loopback/repository'
+import { Person } from '../models'
 
 @model()
 export class Publication extends Entity {
