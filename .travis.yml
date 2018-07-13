@@ -15,10 +15,11 @@ after_success:
 deploy:
 - provider: heroku
   api_key: "$HEROKU_TOKEN"
-  app: crown-lab-backend
+  app: 
+    develop: crown-lab-backend-sandbox
+    master: crown-lab-backend-dev
   on:
     repo: kevdougful/crown-lab-backend
-    branch: develop
 - provider: pages
   skip_cleanup: true
   local_dir: docs/
