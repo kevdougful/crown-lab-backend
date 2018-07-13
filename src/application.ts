@@ -58,9 +58,10 @@ export class CrownLabApiApplication extends BootMixin(
   }
 
   async start() {
+    const server = await this.getServer(RestServer)
+    server.bind('rest.port').to(process.env.PORT || 3000)
     await super.start()
 
-    const server = await this.getServer(RestServer)
     const port = await server.get(RestBindings.PORT)
     console.log(`Server is running at http://127.0.0.1:${port}`)
     console.log(`Try http://127.0.0.1:${port}/ping`)
