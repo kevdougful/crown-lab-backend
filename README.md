@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/kevdougful/crown-lab-backend.svg?branch=master)](https://travis-ci.com/kevdougful/crown-lab-backend)
+[![Build Status](https://travis-ci.org/joegattnet/joegattnet_v3.png?branch=develop)][travis]
 
 # Crown Lab Backend
 ## Genetics Lab API @ Case Western Reserve University
