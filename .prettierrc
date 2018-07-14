@@ -1,6 +1,7 @@
 {
   "parser": "typescript",
-  "printWidth": 120,
+  "printWidth": 80,
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "semicolons": false
 }
