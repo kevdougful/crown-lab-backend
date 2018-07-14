@@ -15,7 +15,7 @@ after_success:
 deploy:
 - provider: heroku
   api_key: "$HEROKU_TOKEN"
-  app: 
+  app:
     develop: crown-lab-backend-sandbox
     master: crown-lab-backend-dev
   on:
@@ -33,6 +33,3 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-env:
-  global:
-  - secure: aF26g6s+cCw42lYoe8vwE23yY2MlCd8+Mgmt0KaTC44/wJQqrX61NX/r91omZ8F7r+WYzFdFZjJUYtzlFq6Zq2gFmFMQ1hA5+UQC4hLAlNZavmEVVlrpibI1jOAxd5KGPARsknWGz74ksLWEbT01ilElYzo4ZRmTJY6GOXDP8gliuBgQr3BvUS7BckFrvcZPY6dbu4oiduzaqn1lWw+EzVOkcg1vapJA5ZfVLr+pv+oOZ7WBMtbNTYuJKFouSgjKW+Nr+J45XO9vS0VJRSVunjJtzXWPiRrnVg/9ZFS21VJ0CrM77EQVZPCBCOYEZlIc7eOcnGPurgf5LXIgFJaxpItwOBV+RECMIR5orXCUcPqfqArVfWoDcs1WQo1A7EyVnHoAI9E69yzo18OUvYZgMc74W7MMUQtoAdqaqFKH7m1vkKlI/g2xjTLfMd3Hd5Wf7TaNa/cPOTuHzKTx85Ip7WPbY84wyTY0Tdyx42wvk+74P6DYhbN+OjaH48ZM6M6jZB0OZZ0UyiJdgS95cJgO8WtJB8IFh1tjc6EuKqT1jXKzc4NkHcHAJJXXaZkZZaAF0np7rtATPNVG3c7wbYobZBObhBE8XFI80UaowNVjCekBT7wl2v3GrPfW4vG5zuh1jDI+waTRPQRw8kfgVXcSP7gN6QKloeDeZ71vXlLAGrg=
